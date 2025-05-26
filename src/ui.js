@@ -19,10 +19,10 @@ const UI = {
     this.ctx = this.canvas.getContext('2d');
 
     // Wczytaj grafiki
-    await this.loadImage("android1", "assets/android1.png");
-    await this.loadImage("android2", "assets/android2.png");
-    await this.loadImage("factory", "assets/factory.png");
-    await this.loadImage("bg", "assets/background.png");
+    await this.loadImage("android1", "src/assets/android1.png");
+    await this.loadImage("android2", "src/assets/android2.png");
+    await this.loadImage("factory", "src/assets/factory.png");
+    await this.loadImage("bg", "src/assets/background.png");
 
     this.canvas.addEventListener('click', (e) => {
       // Kliknięcie w centralny obszar = tap
