@@ -1,13 +1,108 @@
-body {
-  background: #15151d;
+/* Reset i tło */
+html, body {
+  height: 100%;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #15151d;
+  font-family: 'Press Start 2P', 'VT323', 'Fira Mono', monospace, 'Courier New', Courier;
+  color: #21f6ff;
+}
+
+/* Centrum ekranu */
+body {
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
-canvas {
-  border: 2px solid #21f6ff;
+
+/* Canvas z ramką neonową */
+canvas#gameCanvas {
+  border: 3px solid #21f6ff;
+  box-shadow: 0 0 20px #21f6ff88, 0 0 40px #2de0ff33;
   background: #1b1b28;
+  border-radius: 12px;
   image-rendering: pixelated;
+  margin: 24px 0 8px 0;
+  max-width: 95vw;
+  height: auto;
+  transition: box-shadow 0.2s;
+}
+
+/* Przycisk styl retro (jeśli używasz gdzieś button) */
+button {
+  background: linear-gradient(90deg, #21f6ff 0%, #2de0ff 100%);
+  color: #191a26;
+  border: none;
+  padding: 10px 24px;
+  margin: 10px;
+  font-family: inherit;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 0 12px #21f6ff77;
+  cursor: pointer;
+  transition: filter 0.15s;
+}
+button:hover, button:focus {
+  filter: brightness(1.2) drop-shadow(0 0 8px #21f6ffcc);
+}
+
+/* Pixelowe czcionki - sugerowane Google Fonts do <head>:
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+*/
+
+/* Panel info/overlay */
+.info-panel {
+  background: #1b263bcc;
+  border: 2px solid #21f6ff;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  padding: 12px 18px;
+  margin: 10px 0;
+  box-shadow: 0 0 10px #21f6ff33;
+}
+
+/* Responsywność */
+@media (max-width: 600px) {
+  canvas#gameCanvas {
+    width: 98vw !important;
+    height: auto !important;
+    max-width: 100vw;
+    border-width: 2px;
+  }
+  .info-panel {
+    font-size: 0.92rem;
+    padding: 8px 6px;
+  }
+}
+
+/* Neonowy pasek postępu (jeśli używasz gdzieś .progress) */
+.progress {
+  background: #232e4c;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 10px 0;
+  height: 18px;
+  box-shadow: 0 0 8px #2de0ff55;
+}
+.progress-bar {
+  background: linear-gradient(90deg, #21f6ff 0%, #2de0ff 100%);
+  height: 100%;
+  width: 60%; /* Dostosuj dynamicznie */
+  box-shadow: 0 0 14px #21f6ffcc;
+  transition: width 0.3s;
+}
+
+/* Neonowy nagłówek */
+h1, h2, h3 {
+  color: #21f6ff;
+  text-shadow: 0 0 6px #21f6ff, 0 0 20px #2de0ff55;
+  margin-bottom: 12px;
+  font-family: 'Press Start 2P', 'VT323', monospace;
+  letter-spacing: 2px;
 }
